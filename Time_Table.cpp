@@ -184,7 +184,7 @@ int main()
 	stringstream ss;
 	ss << file.rdbuf();
 	string t = ss.str();
-	t = t.substr(t.find("##########") + 86); //이러면 t는 본문 내용만 // 딱 >>시간표\n뒤부터
+	t = t.substr(t.find("##########") + 86); //이러면 t는 본문 내용만 // 딱 >>과목\n뒤부터
 
 	vector<string> subD = split(t, "*****");
 
