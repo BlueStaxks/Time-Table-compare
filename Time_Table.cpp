@@ -134,7 +134,7 @@ bool printF(vector<short>& selec, vector<vector<vector<vector<short>>>>& fi, boo
 		cout << subN[i] << '(' << i + 1 << ") ";
 	printf("\n선택 옵션 : ");
 	for (i = 0; i < selec.size(); ++i)
-		printf("%d(%d)   ", selec[i]+1, (int)fi[i].size());
+		printf("%d(%d)   ", selec[i] + 1, (int)fi[i].size());
 	printf("\n\n");
 	return false;
 }
@@ -149,7 +149,7 @@ void make(int n, vector<short>& sel, vector<vector<vector<vector<short>>>>& sub)
 	else if (printF(sel, sub, false))
 	{
 		for (int i = 0; i < sel.size(); ++i)
-			printf("%d ", sel[i]);
+			printf("%d ", sel[i] + 1);
 		printf("\n");
 	}
 	return;
@@ -211,6 +211,7 @@ int main()
 		{
 			int td;
 			scanf("%d", &td);
+			td--;
 			if (td < 0 || td >= sub[i].size())	return 0;
 			selection[i] = td;
 		}
