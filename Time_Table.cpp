@@ -134,7 +134,7 @@ bool printF(vector<short>& selec, vector<vector<vector<vector<short>>>>& fi, boo
 		cout << subN[i] << '(' << i + 1 << ") ";
 	printf("\n선택 옵션 : ");
 	for (i = 0; i < selec.size(); ++i)
-		printf("%d(%d)   ", selec[i], (int)fi[i].size());
+		printf("%d(%d)   ", selec[i]+1, (int)fi[i].size());
 	printf("\n\n");
 	return false;
 }
@@ -184,7 +184,7 @@ int main()
 	stringstream ss;
 	ss << file.rdbuf();
 	string t = ss.str();
-	t = t.substr(t.find("##########") + 86); //이러면 t는 본문 내용만 // 딱 >>과목\n뒤부터
+	t = t.substr(t.find("##########") + 86); //이러면 t는 본문 내용만 // 딱 >>시간표\n뒤부터
 
 	vector<string> subD = split(t, "*****");
 
@@ -202,10 +202,11 @@ int main()
 	} //과목 필드 생성 끝
 
 	vector<short> selection(subN.size(), 0);
+	printf("##################\n가능한 시간 옵션들 : \n\n");
 	make(0, selection, sub);
+	printf("##################\n\n입력 :\n");
 	while (1)
 	{
-		printF(selection, sub, true);
 		for (i = 0; i < selection.size(); ++i)
 		{
 			int td;
@@ -213,6 +214,7 @@ int main()
 			if (td < 0 || td >= sub[i].size())	return 0;
 			selection[i] = td;
 		}
+		printF(selection, sub, true);
 	}
 	
 	return 0;
