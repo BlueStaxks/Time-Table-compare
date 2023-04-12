@@ -1,5 +1,5 @@
 # Time-Table-compare
-for AJOU students
+for University students
 
 cpp파일을 그냥 바로 실행 시켜보면 txt파일이 하나 만들어짐
 
