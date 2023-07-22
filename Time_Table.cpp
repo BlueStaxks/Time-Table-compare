@@ -187,6 +187,9 @@ int main()
 	t = t.substr(t.find("##########") + 86); //이러면 t는 본문 내용만 // 딱 >>시간표\n뒤부터
 
 	vector<string> subD = split(t, "*****");
+	for (i = subD.size() - 1; i >= 0; --i)
+		if (subD[i].find("!") != string::npos)
+			subD.erase(subD.begin() + i);
 
 	for (i = 0; i < subD.size(); ++i)
 		subN.push_back(subD[i].substr(1, subD[i].find(":") - 1)); //과목명 sub에 입력
